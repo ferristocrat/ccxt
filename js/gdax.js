@@ -614,6 +614,7 @@ module.exports = class gdax extends Exchange {
     parseTransaction (transaction, side = undefined) {
         //console.log(this.safeString (transaction.details, 'crypto_transaction_hash'));
         let timestamp = this.parse8601 (transaction['created_at']);
+        let completed_at = this.parse8601 (transaction['completed_at']);
         let datetime = undefined;
         if (typeof timestamp !== 'undefined') {
             datetime = this.iso8601 (timestamp);
